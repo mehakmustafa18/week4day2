@@ -1,5 +1,5 @@
-import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 export const useFilterStore = create(
   persist(
@@ -21,11 +21,10 @@ export const useFilterStore = create(
 
       clearFilters: () => set({ filters: [] }),
 
-      toggleDarkMode: () =>
-        set((state) => ({ darkMode: !state.darkMode })),
+      toggleDarkMode: () => set((state) => ({ darkMode: !state.darkMode })),
     }),
     {
-      name: 'job-listings-store',
-    }
-  )
-)
+      name: "job-listings-store",
+    },
+  ),
+);
