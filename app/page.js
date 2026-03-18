@@ -2,19 +2,9 @@ import Header from "./components/Header";
 import FilterBar from "./components/FilterBar";
 import JobsList from "./components/JobsList";
 import DarkModeToggle from "./components/DarkModeToggle";
+import { jobs } from "./data/jobs";
 
-
-async function getJobs() {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000')
-  
-  const res = await fetch(`${baseUrl}/api/jobs`, { cache: 'no-store' })
-  return res.json()
-}
-
-export default async function Home() {
-  const jobs = await getJobs();
-
+export default function Home() {
   return (
     <>
       <Header />

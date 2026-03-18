@@ -3,16 +3,11 @@ import Image from 'next/image'
 import Header from '../../components/Header'
 import DarkModeToggle from '../../components/DarkModeToggle'
 import TagButton from '../../components/TagButton'
-
-async function getJob(id) {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
-  const res = await fetch(`${baseUrl}/api/jobs`, { cache: 'no-store' })
-  const jobs = await res.json()
-  return jobs.find((j) => j.id === parseInt(id)) || null
-}
+import { jobs } from '../../data/jobs'
 
 export default async function JobDetail({ params }) {
-  const job = await getJob(params.id)
+  const { id } = await params
+  const job = jobs.find((j) => j.id === parseInt(id)) || null
 
   if (!job) {
     return (
