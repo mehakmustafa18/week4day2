@@ -1,3 +1,5 @@
+import { NextResponse } from "next/server";
+
 export async function GET() {
   const jobs = [
     {
@@ -182,5 +184,5 @@ export async function GET() {
     },
   ];
 
-  return Response.json(jobs);
+  return NextResponse.json(jobs);
 }
